@@ -2,17 +2,20 @@
 
 Front-End application for serving html/js/css content.
 
+
+### General overview
+
+I tried to make console as simple as possible.
+The entire focus was on back-end part.
+
+
 ### Tools
 
-* node 5.1
+* node 5.1, gulp, browser-sync
 
 
-### Next steps imrovements
+### Possible imrovements
 
+* ajax calls validation
 * socket.io
-* gulp, minification
-
-
-### Know issues
-
-Build local
+* minification
