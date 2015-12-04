@@ -7,7 +7,8 @@ class Stop(object):
         return {
             "properties": {
                 "tag": {
-                    "type": "string"
+                    "type": "string",
+                    "index": "not_analyzed"
                 },
                 "title": {
                     "type": "string"

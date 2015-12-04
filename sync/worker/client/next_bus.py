@@ -1,3 +1,4 @@
+from flask import current_app
 import requests
 import datetime
 import xml.etree.ElementTree as ET
@@ -6,7 +7,6 @@ from logging import getLogger
 
 class NextBusClient(object):
     BASE_URL = 'http://webservices.nextbus.com/service/publicXMLFeed'
-    CALCULATE_FOR_NEXT_DAYS = 21
 
     def __init__(self):
         self.logger = getLogger(self.__class__.__name__)
@@ -85,7 +85,7 @@ class NextBusClient(object):
 
                     d = datetime.date.today()
 
-                    for it in range(0, self.CALCULATE_FOR_NEXT_DAYS):
+                    for it in range(0, current_app.config.get('CALCULATE_FOR_NEXT_DAYS', 7)):
                         if self._is_date_within_route_period(d, route_period):
                             t = datetime.datetime.strptime(departure_time, '%H:%M:%S').time()
                             departure_at = datetime.datetime.combine(d, t)
